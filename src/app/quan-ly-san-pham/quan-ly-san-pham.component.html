@@ -1,0 +1,43 @@
+<div class="container">
+  <nav class="navbar navbar-dark bg-dark">
+   <p style="color:white">Quan Ly Danh Muc San Pham</p>
+  </nav>
+  <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Mã SP:</label>
+    <input type="text" class="form-control" placeholder="MTP" #maSp>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Tên SP:</label>
+    <input type="text" class="form-control"  placeholder="máy tính bảng" #tenSp>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Giá:</label>
+    <input type="text" class="form-control"  placeholder="100000" #Gia>
+  </div>
+  <button type="button" class="btn btn-primary" (click) = "themSanPham(maSp.value, tenSp.value, Gia.value)">Thêm Sản Phẩm</button>
+</form>
+<br><br>
+<p>{{ma}}</p>
+<p>{{ten}}</p>
+<p>{{gia}}</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Ma SP</th>
+      <th>Ten SP</th>
+      <th>Gia</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor= "let obj of mang; let stt = index" [ngClass] = "{colorRow: (stt+1)%2==0 }">
+      <td>{{stt + 1}}</td>
+      <td>{{obj.maSp}}</td>
+      <td>{{obj.tenSp}}</td>
+      <td>{{obj.gia}}</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
